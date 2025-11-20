@@ -1,5 +1,5 @@
 "use client"
-
+import { createBlog } from "@/utils/actions/server"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -19,10 +19,10 @@ export default function Home() {
     e.preventDefault()
 
     const formData = new FormData(e.currentTarget)
-    const title = formData.get("title") as string
-    const content = formData.get("content") as string
+    const title = formData.get("title") as string //access by id
+    const content = formData.get("content") as string // access by id
     
-    // createClientBlog(title, content)
+    // createBlog(title, content)
   }
 
   return (

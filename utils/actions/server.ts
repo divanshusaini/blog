@@ -1,3 +1,5 @@
+"use server";
+
 import { createClient } from "../supabase/server";
 
 export const getBlog = async () => {
@@ -37,4 +39,13 @@ export async function updateBlog(id: string, title: string, description: string)
     }
 
     return { success: true };
+}
+
+export async function deleteblog(id:string){
+    let supabase = await createClient();
+    const {error} = await supabase
+    .from('blog')
+    .delete()
+    .eq('id', id)
+    if(error) throw new Error ("error in deleting ");
 }
