@@ -43,11 +43,11 @@ export default function Home() {
           "Content-Type": "application/json",
         },
       })
-      const data = await result.json()
+      const data = await result.json();
       setBlogs(data);
     }
     response();
-  }, [blogs]);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

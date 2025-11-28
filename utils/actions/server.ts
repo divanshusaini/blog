@@ -35,17 +35,14 @@ export async function updateBlog(id: string, title: string, description: string)
     }).eq("id", id);
 
     if (error) {
-        throw new Error("Error creating Blogs")
+        throw new Error("Error updating Blogs")
     }
 
     return { success: true };
 }
 
-export async function deleteblog(id:string){
-    let supabase = await createClient();
-    const {error} = await supabase
-    .from('blog')
-    .delete()
-    .eq('id', id)
-    if(error) throw new Error ("error in deleting ");
+export async function deleteBlog(id: string) {
+    const supabase = await createClient();
+    const { error } = await supabase.from("blog").delete().eq("id", id);
+    if (error) throw new Error("error in deleting ");
 }
